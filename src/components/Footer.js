@@ -59,7 +59,7 @@ export default function App() {
               <NavLink style={{color:"gray"}} to="/login">Login/Register</NavLink>
               </p>
               <p>
-              <NavLink style={{color:"gray"}} to="/register">Donate</NavLink>
+              <NavLink style={{color:"gray"}} to="/donate">Donate</NavLink>
               </p>
             </MDBCol>
 

@@ -1,0 +1,17 @@
+.about-us{
+    margin: 50px 10px;
+    padding: 100px 300px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.about-us h1{
+    margin-bottom: 100px;
+}
+
+.about-us p{
+    font-size: large;
+    margin-bottom: 50px;
+}

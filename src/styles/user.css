@@ -1,0 +1,13 @@
+.userGreet {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.userEvents {
+    border-top: .3rem solid #eee;
+    margin-top: 3rem;
+    display: flex;
+    border-top: .2rem solid #eee;
+    padding: 1rem;
+    margin: 30px;
+}

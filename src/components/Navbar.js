@@ -46,7 +46,7 @@ export default function App() {
 
             <MDBNavbarItem style={{padding:15, fontSize:15}}> 
             <i style={{paddingRight:10}} className="fa fa-user-circle"></i>
-             <NavLink to="/login">Login/Register</NavLink>
+             <NavLink to="/loginregister">Login/Register</NavLink>
             </MDBNavbarItem>
             <MDBNavbarItem style={{marginTop:"8px" ,fontSize:15, marginLeft:"15px", marginRight:"15px"}}> 
            

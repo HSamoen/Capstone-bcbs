@@ -1,0 +1,246 @@
+.takeActionLand {
+    background-image: url("https://publish.purewow.net/wp-content/uploads/sites/2/2022/10/Where-to-Volunteer-for-Thanksgiving-Universal.jpg?fit=2050%2C1100");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 85%;
+    min-height: 25rem;
+    margin-bottom: 2rem;
+}
+
+.takeActionHeader {
+    background: rgba(237, 234, 234, 0.576);
+    position: relative;
+    color: black;
+    font-size: 4rem;
+    line-height: 1.6em;
+    text-align: center;
+    text-transform: uppercase;
+    top: 2em;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#volunteer {
+    text-align: center;
+}
+
+img {
+    object-fit: contain;
+}
+
+.takeActionIdeas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1rem;
+    grid-gap: 20px;
+}
+
+.actionIdea {
+    border: .3rem solid #eee;
+    padding: 1rem;
+}
+
+.actionIdeaHeader {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.volunteerContainer {
+    margin: 1% 1% 3% 1%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.volunteerContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.volunteerImg {
+    width: 30%;
+    height: 20%;
+}
+
+.actionIdea {
+    margin: 1%;
+}
+
+.volunteer {
+    display: flex;
+}
+
+.volunteering {
+    display: flex;
+    border-top: .2rem solid #eee;
+    padding: 1rem;
+    margin: auto;
+    width: 60%;
+}
+
+.volunteerOpData {
+    padding-top: 1rem;
+}
+
+.event, .volunteerOpData p {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.volunteerOpData p {
+    padding: .5rem;
+}
+
+.volunteerOpHeading {
+    width: 50%;
+}
+
+.foodDriveContainer {
+    background-image: url("https://www.canadahelps.org/media/7-Strategic-Ways-to-Support-Your-Local-Food-Bank_Social-Sharing.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 85%;
+    min-height: 25rem;
+    margin-bottom: 2rem;
+}
+
+.foodDriveHeader .foodDriveHeading {
+    position: relative;
+    border: .4rem solid white;
+    color: #fff;
+    font-size: 4rem;
+    line-height: 1.6em;
+    text-align: center;
+    text-transform: uppercase;
+    top: 2em;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.foodDriveContent {
+    margin: 1rem;
+}
+
+.foodDriveContent p {
+    text-align: center;
+    width: 50%;
+    padding: 1rem;
+    margin: auto;
+}
+
+.foodDriveVer {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.informFoodDrive {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 30%;
+    width: 40%;
+}
+
+.RaleighImg {
+    object-fit: contain;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 667px) {
+    .actionIdeaHeader {
+        font-size: 1rem;
+    }
+
+    .actionIdeaText {
+        font-size: .5rem;
+    }
+
+    .volunteerContainer {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .volunteerContainer img {
+        width: 80%;
+        margin: auto;
+    }
+
+    .volunteerContainer h3, .volunteerContainer p, .volunteerContainer ul, .volunteerOpHeading h2, .volunteerOpHeading h3, .volunteerOpHeading p,  .foodDriveContent p {
+        font-size: .8rem;
+    }
+
+    .volunteerOpHeading {
+        width: 80%;
+        margin: auto;
+    }
+
+    .volunteerOpData h5, .volunteerOpData p, .volunteerOpData ul {
+        font-size: .8rem;
+        width: 100%;
+    }
+
+    .volunteerOpData ul {
+        margin-left: 0;
+    }
+
+    .volunteering {
+        padding: 2rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .volunteering img {
+        width: 80%;
+    }
+
+    .foodDriveVer {
+        font-size: 2rem;
+    }
+
+    .foodDriveContent p {
+        width: 100%;
+    }
+
+    .informFoodDrive {
+        margin: auto;
+        width: 80%;
+    }
+    
+    .informFoodDrive p, .informFoodDrive ul {
+        font-size: .8rem;
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1280px) {
+    .volunteering {
+        width: 80%;
+    }
+
+    .volunteering img {
+        width: 80%;
+    }
+
+    .volunteerContainer h3, .volunteerContainer p, .volunteerContainer ul, .volunteerOpHeading h2, .volunteerOpHeading h3, .volunteerOpHeading p,  .foodDriveContent p {
+        font-size: .8rem;
+    }
+
+    .volunteerOpData h5, .volunteerOpData p, .volunteerOpData ul {
+        font-size: .8rem;
+        width: 80%;
+    }
+
+    .volunteering {
+        padding: 2rem;
+    }
+
+    .foodDriveVer {
+        font-size: 2rem;
+    }
+
+    .foodDriveContent p {
+        font-size: 1rem;
+        width: 100%;
+    }
+}

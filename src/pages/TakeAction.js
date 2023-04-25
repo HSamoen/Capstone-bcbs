@@ -5,6 +5,15 @@ import axios from 'axios';
 
 export default function TakeAction() {
     const [events, setEvents] = useState([]);
+    const [buttonStates, setButtonStates] = useState({});
+
+    const handleClick = (eventId) => {
+        setButtonStates((prevState) => ({
+          ...prevState,
+          [eventId]: true, // set the clicked button's state to true
+        }));
+        addVolunteerEvent(27, eventId); // call the function to handle the click event
+    };
 
     useEffect(() => {
         const getEvents = async () => {
@@ -17,6 +26,15 @@ export default function TakeAction() {
         };
         getEvents();
         }, [])
+
+    const addVolunteerEvent = async (volunteerID, eventID) => {
+        const volunteerEvent = {volunteerID, eventID};
+        try {
+            const response = await axios.post("http://localhost:3001/volunteerEvents", volunteerEvent)
+        } catch(err) {
+            console.log(err)
+        }
+    };
 
     return (
         <>
@@ -62,7 +80,6 @@ export default function TakeAction() {
                 <img src="https://therapidian.org/sites/default/files/article_images/freshfoodgiveaway.jpg" alt="Fresh Produce" className="volunteerImg" />
             </section>
 
-
             {events.map((event) => {
                 return (
                     <>
@@ -75,6 +92,14 @@ export default function TakeAction() {
                                 <p>{event.organizer}</p>
                                 <p>{event.dates}</p>
                                 <p>{event.total_needed}</p>
+                                {/* <button onClick={() => addVolunteerEvent(27, event.eventID)}disabled={buttonClicked ? true : false}>Volunteer</button> */}
+                                <button
+                                key={event.eventID}
+                                onClick={() => handleClick(event.eventID)}
+                                disabled={buttonStates[event.eventID] ? true : false}
+                                >
+                                Volunteer
+                                </button>
                             </section>
                             <section className="volunteerOpData">
                                 <h5 className="event">{event.description_header}</h5>

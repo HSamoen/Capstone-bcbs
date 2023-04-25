@@ -56,7 +56,7 @@ export default function App() {
               <NavLink style={{color:"gray"}} to="/takeaction">Take Action</NavLink>
               </p>
               <p>
-              <NavLink style={{color:"gray"}} to="/login">Login/Register</NavLink>
+              <NavLink style={{color:"gray"}} to="/loginregister">Login/Register</NavLink>
               </p>
               <p>
               <NavLink style={{color:"gray"}} to="/donate">Donate</NavLink>

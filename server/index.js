@@ -55,6 +55,15 @@ app.get('/get', (req, res) => {
     );
 });
 
+
+app.get ("/volunteers", (req,res) => {
+    const q = "SELECT * FROM volunteers"
+    db.query(q,(err,data) => {
+        if (err) return res.json(err)
+        return res.json(data)
+    })
+})
+
 app.listen(3001, () => {
     console.log("Running on port 3001")
 });

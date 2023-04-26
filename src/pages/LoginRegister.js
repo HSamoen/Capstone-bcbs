@@ -15,13 +15,18 @@ import {
 }
 from 'mdb-react-ui-kit';
 
-function App() {
-  const [full_name, setFullName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [volunteer_password, setVolunteerPassword] = useState("");
-  
-  const [justifyActive, setJustifyActive] = useState('tab1');
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      full_name: "",
+      username: "",
+      email: "", 
+      volunteer_password: "",
+      justifyActive: 'tab1',
+      loggedIn: false
+    };
+  }
 
   const handleJustifyClick = (value) => {
     if (value === justifyActive) {

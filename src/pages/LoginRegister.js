@@ -28,8 +28,8 @@ export default class App extends Component {
     };
   }
 
-  const handleJustifyClick = (value) => {
-    if (value === justifyActive) {
+  handleJustifyClick = (value) => {
+    if (value === this.state.justifyActive) {
       return;
     }
     this.setState({ justifyActive: value });

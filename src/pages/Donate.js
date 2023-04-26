@@ -101,7 +101,7 @@ export default function App() {
                 {/* <a href="#!" className="text-muted">
                   Go back
                 </a> */}
-                <MDBBtn size="lg">Pay amount</MDBBtn>
+                <MDBBtn size="lg" >Pay amount</MDBBtn>
               </div>
             </MDBCardBody>
           </MDBCard>

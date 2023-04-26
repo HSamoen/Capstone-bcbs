@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+
+import axios from 'axios';
 import {
   MDBContainer,
   MDBTabs,
@@ -7,33 +9,61 @@ import {
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
-  MDBIcon,
+
   MDBInput,
   MDBCheckbox
 }
 from 'mdb-react-ui-kit';
-import axios from 'axios';
 
-function App() {
-  const [full_name, setFullName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [volunteer_password, setVolunteerPassword] = useState("");
-  
-  const [justifyActive, setJustifyActive] = useState('tab1');
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      full_name: "",
+      username: "",
+      email: "", 
+      volunteer_password: "",
+      justifyActive: 'tab1',
+      loggedIn: false
+    };
+  }
 
-  const handleJustifyClick = (value) => {
-    if (value === justifyActive) {
+  handleJustifyClick = (value) => {
+    if (value === this.state.justifyActive) {
       return;
     }
-
-    setJustifyActive(value);
+    this.setState({ justifyActive: value });
   };
-  
-  const handleRegisterSubmit = (event) => {
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, volunteer_password } = this.state;
+    try {
+      const response = await axios.post("http://localhost:3001/login", { email, password: volunteer_password });
+      if (response.data.success) {
+        console.log(response);
+        alert('Logged in successfully!');
+        this.setState({ loggedIn: true });
+        window.location.href = "/User"
+      } else {
+        alert('Invalid email or password.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error occurred while logging in.');
+    }
+  };
+
+
+  handleRegisterSubmit = (event) => {
     event.preventDefault();
-    const volunteer = { full_name, username, email, volunteer_password };
-    insertVolunteer(volunteer)
+    const volunteer = { 
+      full_name: this.state.full_name, 
+      username: this.state.username, 
+      email: this.state.email, 
+      volunteer_password: this.state.volunteer_password 
+    };
+    this.insertVolunteer(volunteer)
       .then((response) => {
         console.log('resp', response);
         alert('Volunteer registered successfully!');
@@ -44,126 +74,105 @@ function App() {
       });
   };
 
-  const insertVolunteer = async (volunteer) => {
-      try {
-        const response = await axios.post("http://localhost:3001/insert", volunteer)
-        return response;
-      } catch(err) {
-        console.log(err)
-      }
+  insertVolunteer = async (volunteer) => {
+    try {
+      const response = await axios.post("http://localhost:3001/insert", volunteer);
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+  render() {
+    return (
+      
+      <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
 
-      <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
-        <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-            Login
-          </MDBTabsLink>
-        </MDBTabsItem>
-        <MDBTabsItem>
-          <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-            Register
-          </MDBTabsLink>
-        </MDBTabsItem>
-      </MDBTabs>
+        <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
+          <MDBTabsItem>
+            <MDBTabsLink onClick={() => this.handleJustifyClick('tab1')} active={this.state.justifyActive === 'tab1'}>
+              Login
+            </MDBTabsLink>
+          </MDBTabsItem>
+          <MDBTabsItem>
+            <MDBTabsLink onClick={() => this.handleJustifyClick('tab2')} active={this.state.justifyActive === 'tab2'}>
+              Register
+            </MDBTabsLink>
+          </MDBTabsItem>
+        </MDBTabs>
 
-      <MDBTabsContent>
+        <MDBTabsContent>
 
-        <MDBTabsPane show={justifyActive === 'tab1'}>
+          <MDBTabsPane show={this.state.justifyActive === 'tab1'}>
 
-          <div className="text-center mb-3">
-            <p>Sign in with:</p>
+      <form onSubmit={this.handleSubmit}>
+        <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' name="email" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} />
+        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name="volunteer_password" value={this.state.volunteer_password} onChange={(e) => this.setState({ volunteer_password: e.target.value })} /> 
+        <div className="d-flex justify-content-between mx-4 mb-4">
+          <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
+          <a href="!#">Forgot password?</a>
+        </div>
+        <MDBBtn className="mb-4 w-100" type="submit">Sign in</MDBBtn>
+        {/* {this.state.login ? (
+          <p className="text-success">You Are Logged in Successfully</p>
+        ) : (
+          <p className="text-danger">You Are Not Logged in</p>
+        )} */}
+        <p className="text-center">Not a member? <a href="#!">Register</a></p>
+      </form>
+          </MDBTabsPane>
 
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-              <a href='https://www.facebook.com/BCBSAssociation/' className='me-4 text-reset' target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-              </a>
+        <MDBTabsPane show={this.state.justifyActive === 'tab2'}>
 
-              <a href='https://twitter.com/BCBSAssociation?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor' className='me-4 text-reset' target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-              </a>
 
-              <a href='https://www.google.com/' className='me-4 text-reset' target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-              </a>
-
-              <a href='https://github.com/' className='me-4 text-reset'target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-              </a>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
-
-          <div className="d-flex justify-content-between mx-4 mb-4">
-            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-            <a href="!#">Forgot password?</a>
-          </div>
-
-          <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-
-        </MDBTabsPane>
-
-        <MDBTabsPane show={justifyActive === 'tab2'}>
-
-          <div className="text-center mb-3">
-            <p>Sign up with:</p>
-
-            <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-            <a href='https://www.facebook.com/BCBSAssociation/' className='me-4 text-reset' target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='facebook-f' size="sm"/>
-              </MDBBtn>
-              </a>
-
-              <a href='https://twitter.com/BCBSAssociation?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor' className='me-4 text-reset' target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='twitter' size="sm"/>
-              </MDBBtn>
-              </a>
-
-              <a href='https://www.google.com/' className='me-4 text-reset' target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='google' size="sm"/>
-              </MDBBtn>
-              </a>
-
-              <a href='https://github.com/' className='me-4 text-reset'target="_blank">
-              <MDBBtn tag='a' color='none' className='m-1' style={{ color: '#1266f1' }}>
-                <MDBIcon fab icon='github' size="sm"/>
-              </MDBBtn>
-              </a>
-            </div>
-
-            <p className="text-center mt-3">or:</p>
-          </div>
-
-          <form onSubmit={handleRegisterSubmit}>
-              <MDBInput wrapperClass='mb-4' label='Name' id='name' name="full_name" type='text' value={full_name} onChange={e => setFullName(e.target.value)} />
-              <MDBInput wrapperClass='mb-4' label='Username' id='username'name="username" type='text'onChange={e => setUsername(e.target.value)} />
-              <MDBInput wrapperClass='mb-4' label='Email' id='email' name="email" type='email' onChange={e => setEmail(e.target.value)} />
-              <MDBInput wrapperClass='mb-4' label='Password' id='password' name="volunteer_password" type='password' onChange={e => setVolunteerPassword(e.target.value)} />
-
-          <div className='d-flex justify-content-center mb-4'>
-            <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
-          </div>
-
-          <MDBBtn className="mb-4 w-100" type='submit'>Sign up</MDBBtn>
-
-        </form>
+       <form onSubmit={this.handleRegisterSubmit}>
+        <MDBInput
+          wrapperClass='mb-4'
+          label='Name'
+          id='name'
+          name="full_name"
+          type='text'
+          value={this.state.full_name}
+          onChange={e => this.setState({ full_name: e.target.value })}
+          required
+          pattern="^[a-zA-Z]+ [a-zA-Z]+$"
+          title="Please enter your full name"
+        />
+        <MDBInput
+          wrapperClass='mb-4'
+          label='Username'
+          id='username'
+          name="username"
+          type='text'
+          onChange={e => this.setState({ username: e.target.value })}
+          required
+          
+        />
+        <MDBInput
+          wrapperClass='mb-4'
+          label='Email'
+          id='email'
+          name="email"
+          type='email'
+          onChange={e => this.setState({ email: e.target.value })}
+          required
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        />
+        <MDBInput
+          wrapperClass='mb-4'
+          label='Password'
+          id='password'
+          name="volunteer_password"
+          type='password'
+          onChange={e => this.setState({ volunteer_password: e.target.value })}
+          required
+          minLength={6}
+        />
+        <div className='d-flex justify-content-center mb-4'>
+          <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' required />
+        </div>
+        <MDBBtn className="mb-4 w-100" type='submit'>Sign up</MDBBtn>
+      </form>
 
         </MDBTabsPane>
 
@@ -171,6 +180,5 @@ function App() {
 
     </MDBContainer>
   );
+ }
 }
-
-export default App;

@@ -9,7 +9,7 @@ import {
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
-  // MDBIcon,
+
   MDBInput,
   MDBCheckbox
 }
@@ -21,7 +21,7 @@ export default class App extends Component {
     this.state = {
       full_name: "",
       username: "",
-      email: "",
+      email: "", 
       volunteer_password: "",
       justifyActive: 'tab1',
       loggedIn: false
@@ -39,14 +39,12 @@ export default class App extends Component {
     e.preventDefault();
     const { email, volunteer_password } = this.state;
     try {
-      const response = await axios.get("http://localhost:3001/volunteers", {
-        email,
-        volunteer_password,
-      });
+      const response = await axios.post("http://localhost:3001/login", { email, password: volunteer_password });
       if (response.data.success) {
         console.log(response);
         alert('Logged in successfully!');
         this.setState({ loggedIn: true });
+        window.location.href = "/User"
       } else {
         alert('Invalid email or password.');
       }
@@ -55,7 +53,7 @@ export default class App extends Component {
       alert('Error occurred while logging in.');
     }
   };
-  
+
 
   handleRegisterSubmit = (event) => {
     event.preventDefault();
@@ -115,13 +113,11 @@ export default class App extends Component {
           <a href="!#">Forgot password?</a>
         </div>
         <MDBBtn className="mb-4 w-100" type="submit">Sign in</MDBBtn>
-        <div>
-        {this.state.login ? (
+        {/* {this.state.login ? (
           <p className="text-success">You Are Logged in Successfully</p>
         ) : (
           <p className="text-danger">You Are Not Logged in</p>
-        )}
-      </div>
+        )} */}
         <p className="text-center">Not a member? <a href="#!">Register</a></p>
       </form>
           </MDBTabsPane>
@@ -177,7 +173,7 @@ export default class App extends Component {
         </div>
         <MDBBtn className="mb-4 w-100" type='submit'>Sign up</MDBBtn>
       </form>
-      
+
         </MDBTabsPane>
 
       </MDBTabsContent>

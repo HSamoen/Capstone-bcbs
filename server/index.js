@@ -9,6 +9,10 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
+
+
+// const jwt = require('jsonwebtoken');
+
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
@@ -54,8 +58,7 @@ app.get('/get', (req, res) => {
         }
     );
 });
-
-
+////////////
 app.get ("/volunteers", (req,res) => {
     const q = "SELECT * FROM volunteers"
     db.query(q,(err,data) => {
@@ -63,6 +66,26 @@ app.get ("/volunteers", (req,res) => {
         return res.json(data)
     })
 })
+
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+  
+    const query = 'SELECT * FROM volunteers WHERE email = ? AND volunteer_password = ?';
+    const values = [email, password];
+  
+    db.query(query, values, (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ success: false, message: 'Server error' });
+      }
+  
+      if (results.length > 0) {
+        return res.json({ success: true });
+      } else {
+        return res.status(401).json({ success: false, message: 'Invalid email or password' });
+      }
+    });
+  });
 
 app.listen(3001, () => {
     console.log("Running on port 3001")

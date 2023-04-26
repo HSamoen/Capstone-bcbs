@@ -19,7 +19,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [volunteer_password, setVolunteerPassword] = useState("");
-  
+
   const [justifyActive, setJustifyActive] = useState('tab1');
 
   const handleJustifyClick = (value) => {

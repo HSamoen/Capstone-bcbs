@@ -24,7 +24,8 @@ export default class App extends Component {
       email: "", 
       volunteer_password: "",
       justifyActive: 'tab1',
-      loggedIn: false
+      loggedIn: false,
+      
     };
   }
 

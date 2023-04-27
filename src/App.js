@@ -19,7 +19,7 @@ export default function App() {
           <Route path="takeaction" element={<TakeAction />} exact/>
           <Route path="loginregister" element={<LoginRegister />} exact/>
           <Route path="donate" element={<Donate />} exact/>
-          <Route path="user" element={<User />} exact/>
+          <Route path="user/*" element={<User />} exact/>
           <Route path="*" element={<NoPage />} exact/>
         </Route>
       </Routes>

@@ -98,9 +98,6 @@ export default function App() {
                 </div>
               </div>
               <div className="d-flex justify-content-between align-items-center pb-1">
-                {/* <a href="#!" className="text-muted">
-                  Go back
-                </a> */}
                 <MDBBtn size="lg" >Pay amount</MDBBtn>
               </div>
             </MDBCardBody>

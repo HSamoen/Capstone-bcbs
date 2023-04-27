@@ -11,7 +11,6 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 
-
 export default function App() {
   const [showNavRight, setShowNavRight] = useState(false);
 

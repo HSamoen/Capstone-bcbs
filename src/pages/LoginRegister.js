@@ -9,7 +9,6 @@ import {
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
-
   MDBInput,
   MDBCheckbox
 }
@@ -25,7 +24,11 @@ export default class App extends Component {
       volunteer_password: "",
       justifyActive: 'tab1',
       loggedIn: false,
+<<<<<<< HEAD
       
+=======
+      volunteerID: null
+>>>>>>> a02221a23d08e9d0912542fd6e62ae591b9d416d
     };
   }
 
@@ -44,8 +47,10 @@ export default class App extends Component {
       if (response.data.success) {
         console.log(response);
         alert('Logged in successfully!');
-        this.setState({ loggedIn: true });
-        window.location.href = "/User"
+      this.setState({ loggedIn: true, volunteerID: response.data.volunteerID });
+      localStorage.setItem('volunteerID', response.data.volunteerID)
+      window.location.href = `/User/${response.data.volunteerID}`;
+        
       } else {
         alert('Invalid email or password.');
       }
@@ -62,7 +67,7 @@ export default class App extends Component {
       full_name: this.state.full_name, 
       username: this.state.username, 
       email: this.state.email, 
-      volunteer_password: this.state.volunteer_password 
+      volunteer_password: this.state.volunteer_password
     };
     this.insertVolunteer(volunteer)
       .then((response) => {
@@ -107,8 +112,23 @@ export default class App extends Component {
           <MDBTabsPane show={this.state.justifyActive === 'tab1'}>
 
       <form onSubmit={this.handleSubmit}>
-        <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' name="email" value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} />
-        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name="volunteer_password" value={this.state.volunteer_password} onChange={(e) => this.setState({ volunteer_password: e.target.value })} /> 
+        <MDBInput 
+        wrapperClass='mb-4' 
+        label='Email address' 
+        id='form1' type='email' 
+        name="email" 
+        value={this.state.email} 
+        onChange={(e) => this.setState({ email: e.target.value })} />
+
+        <MDBInput 
+        wrapperClass='mb-4' 
+        label='Password' 
+        id='form2' 
+        type='password' 
+        name="volunteer_password" 
+        value={this.state.volunteer_password} 
+        onChange={(e) => this.setState({ volunteer_password: e.target.value })} /> 
+
         <div className="d-flex justify-content-between mx-4 mb-4">
           <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
           <a href="!#">Forgot password?</a>
@@ -170,7 +190,7 @@ export default class App extends Component {
           minLength={6}
         />
         <div className='d-flex justify-content-center mb-4'>
-          <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' required />
+          <MDBCheckbox name='roles' id='roles' label='I have read and agree to the terms' required />
         </div>
         <MDBBtn className="mb-4 w-100" type='submit'>Sign up</MDBBtn>
       </form>

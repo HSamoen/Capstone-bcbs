@@ -7,12 +7,12 @@ export default function TakeAction() {
     const [events, setEvents] = useState([]);
     const [buttonStates, setButtonStates] = useState({});
 
-    const handleClick = (eventId) => {
+    const handleClick = (eventId, volunteerID) => {
         setButtonStates((prevState) => ({
           ...prevState,
           [eventId]: true, // set the clicked button's state to true
         }));
-        addVolunteerEvent(27, eventId); // call the function to handle the click event
+        addVolunteerEvent(volunteerID, eventId); // call the function to handle the click event
     };
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function TakeAction() {
         };
         getEvents();
         }, [])
-
+ 
     const addVolunteerEvent = async (volunteerID, eventID) => {
         const volunteerEvent = {volunteerID, eventID};
         try {
@@ -53,7 +53,7 @@ export default function TakeAction() {
                 </section>
 
                 <section className="actionIdea">
-                    <NavLink to="/loginregister" className="actionIdeaHeader donateSection">Donate</NavLink>
+                    <NavLink to="/donate" className="actionIdeaHeader donateSection">Donate</NavLink>
                     <p className="actionIdeaText">Every dollar helps. Your support helps provide food and hope to families, children, and seniors right here in our communities. Together we make a lasting impact for children, families and seniors who are struggling in our region. Your support today will fill more plates with food and hearts with hope.</p>
                 </section>
 
@@ -92,10 +92,9 @@ export default function TakeAction() {
                                 <p>{event.organizer}</p>
                                 <p>{event.dates}</p>
                                 <p>{event.total_needed}</p>
-                                {/* <button onClick={() => addVolunteerEvent(27, event.eventID)}disabled={buttonClicked ? true : false}>Volunteer</button> */}
                                 <button
                                 key={event.eventID}
-                                onClick={() => handleClick(event.eventID)}
+                                onClick={() => handleClick(event.eventID, localStorage.getItem('volunteerID'))}
                                 disabled={buttonStates[event.eventID] ? true : false}
                                 >
                                 Volunteer

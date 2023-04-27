@@ -21,7 +21,7 @@ db.getConnection(function(err, conn) {
     conn.query(
         "INSERT INTO volunteers (full_name, username, email, volunteer_password) VALUES (?, ?, ?, ?)", [req.body.full_name, req.body.username, req.body.email, req.body.volunteer_password],
         function(err, results) {
-        console.log(results); 
+      console.log(results); 
     });
     // release the connection when finished
     db.releaseConnection(conn);
@@ -38,6 +38,10 @@ app.get('/get', (req, res) => {
     );
 });
 
+<<<<<<< HEAD
+////////////
+=======
+>>>>>>> a02221a23d08e9d0912542fd6e62ae591b9d416d
 app.get ("/volunteers", (req,res) => {
     const q = "SELECT * FROM volunteers";
     db.query(q,(err,data) => {
@@ -69,6 +73,8 @@ app.post('/login', (req, res) => {
     });
   });
 
+<<<<<<< HEAD
+=======
 app.post('/volunteerEvents', jsonParser, (req, res) => {
 db.getConnection(function(err, conn) {
     conn.query(
@@ -98,6 +104,7 @@ app.get('/volunteerUserEvents/:volunteerID', (req, res) => {
         }
     );
 });
+>>>>>>> a02221a23d08e9d0912542fd6e62ae591b9d416d
 
 app.get('/User/:volunteerID', (req, res) => {
     const volunteerID = req.params.volunteerID;

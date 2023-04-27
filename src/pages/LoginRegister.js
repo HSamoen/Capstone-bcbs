@@ -24,7 +24,11 @@ export default class App extends Component {
       volunteer_password: "",
       justifyActive: 'tab1',
       loggedIn: false,
+<<<<<<< HEAD
+      
+=======
       volunteerID: null
+>>>>>>> a02221a23d08e9d0912542fd6e62ae591b9d416d
     };
   }
 

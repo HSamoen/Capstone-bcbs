@@ -5,7 +5,6 @@ import {
   MDBCardBody,
   MDBCol,
   MDBContainer,
-  MDBIcon,
   MDBInput,
   MDBRadio,
   MDBRow,

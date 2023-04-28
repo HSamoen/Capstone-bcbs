@@ -38,10 +38,6 @@ app.get('/get', (req, res) => {
     );
 });
 
-<<<<<<< HEAD
-////////////
-=======
->>>>>>> a02221a23d08e9d0912542fd6e62ae591b9d416d
 app.get ("/volunteers", (req,res) => {
     const q = "SELECT * FROM volunteers";
     db.query(q,(err,data) => {
@@ -73,8 +69,6 @@ app.post('/login', (req, res) => {
     });
   });
 
-<<<<<<< HEAD
-=======
 app.post('/volunteerEvents', jsonParser, (req, res) => {
 db.getConnection(function(err, conn) {
     conn.query(
@@ -104,7 +98,6 @@ app.get('/volunteerUserEvents/:volunteerID', (req, res) => {
         }
     );
 });
->>>>>>> a02221a23d08e9d0912542fd6e62ae591b9d416d
 
 app.get('/User/:volunteerID', (req, res) => {
     const volunteerID = req.params.volunteerID;

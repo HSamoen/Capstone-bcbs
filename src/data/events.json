@@ -1,0 +1,38 @@
+[
+    {
+        "event_header": "Volunteer at Raleigh",
+        "event_name": "Food Drive and Client Server",
+        "image": "https://cdn.cervistech.com/acts/module/display_event_photo.php?event_id=22&org_id=0225&ver=25e9385eec77637c3ffe89b04722fcff955c3b1526c89295a1b437ec4f3809e6",
+        "alt": "Food Drive",
+        "location": "Food Bank Of Central And Eastern North Carolina (Raleigh Branch) 1924 Capital Boulevard, Raleigh, NC, 27604",
+        "organizer": "Marco Rodrigues - mrodriguez@foodbankcenc.org",
+        "dates": "Apr 19 - Aug 31, 2023",
+        "total_needed": "135 needed",
+        "description_header": "Event Description",
+        "event_description": "Interacting with clients who are food insecure, as well as receiving food from our individual donors. Tasks: Provide food to clients and sort out food donations from individuals and local organizations and Provide information on local food pantries."
+    },
+    {
+        "event_header": "Volunteer At New Bern Branch",
+        "event_name": "Warehouse Project - New Bern",
+        "image": "https://cdn.cervistech.com/acts/module/display_event_photo.php?event_id=24&org_id=0225&ver=2e89a7e1f214c8c24154e5e810b70ab5d0dfa1fb3a2016f9443e7d0ed7e5bdd6",
+        "alt": "Packing Food",
+        "location": "Food Bank of Central and Easter North Carolina (New Bern Branch) 1702 Red Robin Lane, New Bern, NC, 28560",
+        "organizer": "Latrone Hardy - lhardy@foodbankcenc.org",
+        "dates": "Apr 19 - Oct 31, 2023 (Multiple Times Available)",
+        "total_needed": "6675 nedded",
+        "description_header": "Event Description",
+        "event_description": "Tasks: Sorting out produce and place them in family - size bags, Sorting out donations from retail stores such as Food Lion and Harris Teeter, Sorting and inspecting food drive donations, and Bagging cereal, rice, or pasta into family - size bags."
+    },
+    {
+        "event_header": "Volunteer At Wilmington",
+        "event_name": "Kids Day",
+        "image": "https://cdn.cervistech.com/acts/module/display_event_photo.php?event_id=61&org_id=0225&ver=c4dc22bd56bb4733b89283f7965020d9280660c8c64abf8215fb314ae1d7aa92",
+        "alt": "Kids Day",
+        "location": "Food Bank of Central and Easter North Carolina (Wilmington Branch) 1314 Marstellar Street, Wilmington, NC, 28401",
+        "organizer": "Anna Williams - awilliams@foodbankcenc.org",
+        "dates": "May 20 - Jul 29, 2023",
+        "total_needed": "127 needed",
+        "description_header": "Event Description",
+        "event_description": "Kids Days are designed for individual families with younger children, age 5-11 years old. Kids Day is held inside the warehouse. Tasks: Sort produce into family-friendly size bags, Clean and bag juice pouches, and Other activities as available."
+    }
+]

@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/takeAction.css';
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import events from '../data/events.json';
 
 export default function TakeAction() {
-    const [events, setEvents] = useState([]);
+    // const [events, setEvents] = useState([]);
     const [buttonStates, setButtonStates] = useState({});
 
     const handleClick = (eventId, volunteerID) => {
@@ -15,17 +17,17 @@ export default function TakeAction() {
         addVolunteerEvent(volunteerID, eventId); // call the function to handle the click event
     };
 
-    useEffect(() => {
-        const getEvents = async () => {
-            try {
-                const response = await axios.get("http://localhost:3001/get")
-                setEvents(response.data)
-            } catch(err) {
-                console.log(err)
-            }
-        };
-        getEvents();
-        }, [])
+    // useEffect(() => {
+    //     const getEvents = async () => {
+    //         try {
+    //             const response = await axios.get("http://localhost:3001/get")
+    //             setEvents(response.data)
+    //         } catch(err) {
+    //             console.log(err)
+    //         }
+    //     };
+    //     getEvents();
+    //     }, [])
  
     const addVolunteerEvent = async (volunteerID, eventID) => {
         const volunteerEvent = {volunteerID, eventID};

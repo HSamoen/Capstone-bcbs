@@ -15,12 +15,12 @@ export default function App() {
      <Navbar />
       <Routes>
         <Route>
-          <Route path="/" element={<Home />} exact/>
-          <Route path="takeaction" element={<TakeAction />} exact/>
-          <Route path="loginregister" element={<LoginRegister />} exact/>
-          <Route path="donate" element={<Donate />} exact/>
-          <Route path="user/*" element={<User />} exact/>
-          <Route path="*" element={<NoPage />} exact/>
+          <Route path="/" element={<Home />} />
+          <Route path="takeaction" element={<TakeAction />} />
+          <Route path="loginregister" element={<LoginRegister />} />
+          <Route path="donate" element={<Donate />} />
+          <Route path="user/*" element={<User />} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
       <Footer />

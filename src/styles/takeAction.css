@@ -20,12 +20,16 @@
     margin: 0 auto;
 }
 
+
 #volunteer {
     text-align: center;
+    margin: 20px;
+    padding: 1rem;
 }
 
 img {
     object-fit: contain;
+    padding: 1rem;
 }
 
 .takeActionIdeas {
@@ -50,6 +54,7 @@ img {
     margin: 1% 1% 3% 1%;
     display: flex;
     justify-content: space-evenly;
+    padding: 1rem;
 }
 
 .volunteerContent {
@@ -94,6 +99,15 @@ img {
 
 .volunteerOpHeading {
     width: 50%;
+}
+
+
+.volunteerOpHeading button{
+ box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.197);
+ border-radius: 3px; 
+ padding: 5px; 
+ width: 80px;
+ margin-bottom: 50px;
 }
 
 .foodDriveContainer {

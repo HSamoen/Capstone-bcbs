@@ -16,7 +16,9 @@ export default function App() {
 
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
+
         <NavLink  to="/" >
+
           <img style={{width:"70%", paddingLeft:10}} src="https://www.linkpicture.com/q/wellnessPlus-logo1_1.png" alt="logo" />
         </NavLink>
       <MDBContainer fluid>
@@ -47,12 +49,19 @@ export default function App() {
             <i style={{paddingRight:10}} className="fa fa-user-circle"></i>
              <NavLink to="/loginregister">Login/Register</NavLink>
             </MDBNavbarItem>
-            <MDBNavbarItem style={{marginTop:"8px" ,fontSize:15, marginLeft:"15px", marginRight:"15px"}}> 
+
            
+            <MDBNavbarItem style={{padding:15, fontSize:15}}> 
+            <i style={{paddingRight:10}} className="fa fa-calendar"></i>
+             <NavLink to="/user">Dashboard</NavLink>
+            </MDBNavbarItem>
+
+            <MDBNavbarItem style={{marginTop:"8px" ,fontSize:15, marginLeft:"15px", marginRight:"15px"}}> 
              <NavLink to="/donate">
              <MDBBtn color='info'> Donate</MDBBtn>
              </NavLink>
             </MDBNavbarItem>
+
             <MDBNavbarItem>
             </MDBNavbarItem>
           </MDBNavbarNav>

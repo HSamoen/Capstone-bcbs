@@ -21,7 +21,7 @@ db.getConnection(function(err, conn) {
     conn.query(
         "INSERT INTO volunteers (full_name, username, email, volunteer_password) VALUES (?, ?, ?, ?)", [req.body.full_name, req.body.username, req.body.email, req.body.volunteer_password],
         function(err, results) {
-        console.log(results); 
+      console.log(results); 
     });
     // release the connection when finished
     db.releaseConnection(conn);

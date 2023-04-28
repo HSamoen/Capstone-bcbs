@@ -13,7 +13,7 @@ export default function Home() {
                 <h1>Who Are We?</h1>
                 <p>WellnessPlus supports regional food banks in order to better serve all Americans in need of food assistance, by providing locals with options for both food donations and volunteer work to assist their neighbors in need. </p>
                 <NavLink to="/takeaction">
-             <MDBBtn color='info'>Take Action</MDBBtn>
+             <MDBBtn color='light'>Take Action</MDBBtn>
              </NavLink>
             </div>
 
@@ -54,8 +54,8 @@ export default function Home() {
                 </div>
             </div>
 
-            <div style={{display: "flex" , justifyContent: "center", alignItems: "center", height: "60vh" , margin:"50px"}}>
-            <iframe width="80%" height="514" src="https://www.youtube.com/embed/SpsXHTiRzvA" title="What is food insecurity and why is it a problem?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div className="video">
+            <iframe src="https://www.youtube.com/embed/SpsXHTiRzvA" title="What is food insecurity and why is it a problem?" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             </div>
         </div>
     )

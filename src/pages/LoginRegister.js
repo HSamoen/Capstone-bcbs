@@ -35,24 +35,53 @@ export default class App extends Component {
     this.setState({ justifyActive: value });
   };
 
+
+  // //connected to backend (authentication using data from database)
+  // handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const { email, volunteer_password } = this.state;
+  //   try {
+  //     const response = await axios.post("http://localhost:3001/login", { email, password: volunteer_password });
+  //     if (response.data.success) {
+  //       console.log(response);
+  //       alert('Logged in successfully!');
+  //     this.setState({ loggedIn: true, volunteerID: response.data.volunteerID });
+  //     localStorage.setItem('volunteerID', response.data.volunteerID)
+  //     window.location.href = `/User/${response.data.volunteerID}`;
+        
+  //     } else {
+  //       alert('Invalid email or password.');
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert('Error occurred while logging in.');
+  //   }
+  // };
+
+
+
+  ////hardcoded user email and password for demonstration purposes
   handleSubmit = async (e) => {
     e.preventDefault();
     const { email, volunteer_password } = this.state;
-    try {
-      const response = await axios.post("http://localhost:3001/login", { email, password: volunteer_password });
-      if (response.data.success) {
-        console.log(response);
-        alert('Logged in successfully!');
-      this.setState({ loggedIn: true, volunteerID: response.data.volunteerID });
-      localStorage.setItem('volunteerID', response.data.volunteerID)
-      window.location.href = `/User/${response.data.volunteerID}`;
-        
-      } else {
-        alert('Invalid email or password.');
-      }
-    } catch (error) {
-      console.error(error);
-      alert('Error occurred while logging in.');
+  
+    // Hard-coded valid email and password for authentication 
+    //this user was already registered in the database
+    const setEmail = 'wellness123@email.com';
+    const setPassword = 'wellness123';
+  
+    if (email === setEmail && volunteer_password === setPassword) {
+      alert('Logged in successfully!');
+      this.setState({ loggedIn: true });
+    
+    // Hard-coded volunteerID for this user for demonstration purposes
+    //events added by this user is already in the database
+      const volunteerID = 23;  
+      localStorage.setItem('volunteerID', volunteerID);
+  
+      window.location.href = `/User/${volunteerID}`;
+    } else {
+      alert('Invalid email or password.');
     }
   };
 
@@ -111,6 +140,7 @@ export default class App extends Component {
         <MDBInput 
         wrapperClass='mb-4' 
         label='Email address' 
+        placeholder='wellness123@email.com'
         id='form1' type='email' 
         name="email" 
         value={this.state.email} 
@@ -119,6 +149,7 @@ export default class App extends Component {
         <MDBInput 
         wrapperClass='mb-4' 
         label='Password' 
+        placeholder='wellness123'
         id='form2' 
         type='password' 
         name="volunteer_password" 
@@ -130,11 +161,6 @@ export default class App extends Component {
           <a href="!#">Forgot password?</a>
         </div>
         <MDBBtn className="mb-4 w-100" type="submit">Sign in</MDBBtn>
-        {/* {this.state.login ? (
-          <p className="text-success">You Are Logged in Successfully</p>
-        ) : (
-          <p className="text-danger">You Are Not Logged in</p>
-        )} */}
         <p className="text-center">Not a member? <a href="#!">Register</a></p>
       </form>
           </MDBTabsPane>
@@ -149,6 +175,7 @@ export default class App extends Component {
           id='name'
           name="full_name"
           type='text'
+          placeholder="WellnessPlus User"
           value={this.state.full_name}
           onChange={e => this.setState({ full_name: e.target.value })}
           required
@@ -161,6 +188,7 @@ export default class App extends Component {
           id='username'
           name="username"
           type='text'
+          placeholder="Wellness123"
           onChange={e => this.setState({ username: e.target.value })}
           required
           
@@ -171,6 +199,7 @@ export default class App extends Component {
           id='email'
           name="email"
           type='email'
+          placeholder="wellness123@email.com"
           onChange={e => this.setState({ email: e.target.value })}
           required
           pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
@@ -181,6 +210,7 @@ export default class App extends Component {
           id='password'
           name="volunteer_password"
           type='password'
+          placeholder="wellness123"
           onChange={e => this.setState({ volunteer_password: e.target.value })}
           required
           minLength={6}

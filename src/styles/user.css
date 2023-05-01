@@ -34,9 +34,17 @@
 .event-des p{
 font-size: small;
 }
+
 .event-info p{
     font-size: small;
 }
+
+.logged-out{
+    padding: 200px 100px;
+    text-align: center;
+}
+
+
   /* responsive for mobile screens */
   @media only screen and (min-width: 375px) and (max-width: 667px){
     .card-container{
@@ -63,6 +71,10 @@ font-size: small;
         font-size: 8px;
     }
     
+    .logged-out{
+        padding: 100px 50px;
+        text-align: center;
+    }
   }
    
    /* responsive for tablet sizes */

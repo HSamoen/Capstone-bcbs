@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
+
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
@@ -38,6 +39,7 @@ app.get('/get', (req, res) => {
     );
 });
 
+//set route to display registered volunteers
 app.get ("/volunteers", (req,res) => {
     const q = "SELECT * FROM volunteers";
     db.query(q,(err,data) => {
@@ -46,6 +48,7 @@ app.get ("/volunteers", (req,res) => {
     })
 })
 
+//login authentication using database connection
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
   
@@ -68,6 +71,7 @@ app.post('/login', (req, res) => {
       }
     });
   });
+
 
 app.post('/volunteerEvents', jsonParser, (req, res) => {
 db.getConnection(function(err, conn) {

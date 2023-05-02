@@ -14,7 +14,7 @@ export default function App() {
   return (
     <MDBContainer fluid className="py-5" style={{ backgroundColor: "#eee" }}>
       <MDBRow className="d-flex justify-content-center">
-        <MDBCol md="8" lg="6" xl="4" style={{width:"50%"}}>
+        <MDBCol md="8" lg="6" xl="4" >
           <MDBCard className="rounded-3">
             <MDBCardBody className="mx-1 my-2">
               <div>
@@ -47,11 +47,11 @@ export default function App() {
                 </MDBCol>
                 <MDBCol size="2">
                   <MDBInput
-                    label="CVV"
+                    label="cvv"
                     id="form6"
                     type="password"
                     size="lg"
-                    placeholder="CVV"
+                    placeholder="cvv"
                   />
                 </MDBCol>
               </MDBRow>

@@ -18,9 +18,9 @@ export default function App() {
     <MDBNavbar expand='lg' light bgColor='light'>
 
         <NavLink  to="/" >
-
           <img style={{width:"70%", paddingLeft:10}} src="https://www.linkpicture.com/q/wellnessPlus-logo1_1.png" alt="logo" />
         </NavLink>
+        
       <MDBContainer fluid>
         <MDBNavbarToggler
           type='button'

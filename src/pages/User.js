@@ -32,7 +32,7 @@ export default function User() {
       };
       getVolunteer();
     }
-  }, [volunteerID, isLoggedIn])
+    }, [volunteerID, isLoggedIn])
 
   const logout = () => {
     localStorage.removeItem('volunteerID');

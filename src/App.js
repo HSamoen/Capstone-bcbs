@@ -8,6 +8,7 @@ import NoPage from "./pages/NoPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import User from "./pages/User";
+import Terms from "./pages/Terms";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="loginregister" element={<LoginRegister />} />
           <Route path="donate" element={<Donate />} />
           <Route path="user/*" element={<User />} />
+          <Route path="terms" element={<Terms />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

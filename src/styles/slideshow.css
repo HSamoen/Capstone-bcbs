@@ -62,7 +62,7 @@
 }
  
  /* responsive for tablet sizes */
- @media (min-device-width: 668px) and (max-device-width: 1280px){
+ @media (min-width: 668px) and (max-width: 1280px){
   
   .slideshowDots {
     bottom: 40px;

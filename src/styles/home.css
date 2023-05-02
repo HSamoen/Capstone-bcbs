@@ -128,7 +128,7 @@
 }
    
    /* responsive for tablet sizes */
-   @media (min-device-width: 668px) and (max-device-width: 1280px){
+   @media (min-width: 668px) and (max-width: 1280px){
     .about-us{
         margin: 50px 20px;
         padding: 50px 100px;

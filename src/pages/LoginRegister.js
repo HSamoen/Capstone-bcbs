@@ -35,55 +35,52 @@ export default class App extends Component {
     this.setState({ justifyActive: value });
   };
 
-
-  // //connected to backend (authentication using data from database)
-  // handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { email, volunteer_password } = this.state;
-  //   try {
-  //     const response = await axios.post("http://localhost:3001/login", { email, password: volunteer_password });
-  //     if (response.data.success) {
-  //       console.log(response);
-  //       alert('Logged in successfully!');
-  //     this.setState({ loggedIn: true, volunteerID: response.data.volunteerID });
-  //     localStorage.setItem('volunteerID', response.data.volunteerID)
-  //     window.location.href = `/User/${response.data.volunteerID}`;
-        
-  //     } else {
-  //       alert('Invalid email or password.');
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert('Error occurred while logging in.');
-  //   }
-  // };
-
-
-
-  ////hardcoded user email and password for demonstration purposes
+  //connected to backend (authentication using data from database)
   handleSubmit = async (e) => {
     e.preventDefault();
     const { email, volunteer_password } = this.state;
-  
-    // Hard-coded valid email and password for authentication 
-    //this user was already registered in the database
-    const setEmail = 'wellness123@email.com';
-    const setPassword = 'wellness123';
-  
-    if (email === setEmail && volunteer_password === setPassword) {
-      alert('Logged in successfully!');
-      this.setState({ loggedIn: true });
-    
-    // Hard-coded volunteerID for this user for demonstration purposes
-    //events added by this user is already in the database
-      const volunteerID = 23;  
-      localStorage.setItem('volunteerID', volunteerID);
-  
-      window.location.href = `/User/${volunteerID}`;
-    } else {
-      alert('Invalid email or password.');
+    try {
+      const response = await axios.post("http://localhost:3001/login", { email, password: volunteer_password });
+      if (response.data.success) {
+        console.log(response);
+        alert('Logged in successfully!');
+      this.setState({ loggedIn: true, volunteerID: response.data.volunteerID });
+      localStorage.setItem('volunteerID', response.data.volunteerID)
+      window.location.href = `/User/${response.data.volunteerID}`;
+        
+      } else {
+        alert('Invalid email or password.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error occurred while logging in.');
     }
   };
+
+  ////hardcoded user email and password for demonstration purposes
+  // handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const { email, volunteer_password } = this.state;
+  
+  //   // Hard-coded valid email and password for authentication 
+  //   //this user was already registered in the database
+  //   const setEmail = 'wellness123@email.com';
+  //   const setPassword = 'wellness123';
+  
+  //   if (email === setEmail && volunteer_password === setPassword) {
+  //     alert('Logged in successfully!');
+  //     this.setState({ loggedIn: true });
+    
+  //   // Hard-coded volunteerID for this user for demonstration purposes
+  //   //events added by this user is already in the database
+  //     const volunteerID = 23;  
+  //     localStorage.setItem('volunteerID', volunteerID);
+  
+  //     window.location.href = `/User/${volunteerID}`;
+  //   } else {
+  //     alert('Invalid email or password.');
+  //   }
+  // };
 
 
   handleRegisterSubmit = (event) => {

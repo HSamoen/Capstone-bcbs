@@ -1,5 +1,5 @@
-import Slideshow from "../components/Slideshow"
-import '../styles/home.css'
+import Slideshow from "../components/Slideshow";
+import '../styles/home.css';
 import {
     MDBBtn 
   } from 'mdb-react-ui-kit';

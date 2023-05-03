@@ -35,7 +35,7 @@ export default class App extends Component {
     this.setState({ justifyActive: value });
   };
 
-  //connected to backend (authentication using data from database)
+  // //connected to backend (authentication using data from database)
   // handleSubmit = async (e) => {
   //   e.preventDefault();
   //   const { email, volunteer_password } = this.state;
@@ -59,7 +59,7 @@ export default class App extends Component {
 
 
 
-  ////hardcoded user email and password for demonstration purposes
+  //hardcoded user email and password for demonstration purposes
   handleSubmit = async (e) => {
     e.preventDefault();
     const { email, volunteer_password } = this.state;

@@ -83,6 +83,33 @@ export default class App extends Component {
   };
 
 
+
+  ////hardcoded user email and password for demonstration purposes
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, volunteer_password } = this.state;
+  
+    // Hard-coded valid email and password for authentication 
+    //this user was already registered in the database
+    const setEmail = 'wellness123@email.com';
+    const setPassword = 'wellness123';
+  
+    if (email === setEmail && volunteer_password === setPassword) {
+      alert('Logged in successfully!');
+      this.setState({ loggedIn: true });
+    
+    // Hard-coded volunteerID for this user for demonstration purposes
+    //events added by this user is already in the database
+      const volunteerID = 23;  
+      localStorage.setItem('volunteerID', volunteerID);
+  
+      window.location.href = `/User/${volunteerID}`;
+    } else {
+      alert('Invalid email or password.');
+    }
+  };
+
+
   handleRegisterSubmit = (event) => {
     event.preventDefault();
     const volunteer = { 
